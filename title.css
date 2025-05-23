@@ -1,0 +1,28 @@
+.title {
+  position: absolute;
+  top: 40px;
+  width: 100%;
+  text-align: center;
+  z-index: 100;
+}
+
+.title h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(90deg, #ff00cc, #3333ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #ff00cc, 0 0 20px #ff00cc;
+  }
+  to {
+    text-shadow: 0 0 20px #3333ff, 0 0 40px #3333ff;
+  }
+}

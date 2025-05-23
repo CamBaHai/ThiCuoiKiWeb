@@ -1,0 +1,1187 @@
+/* --- Common Font Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+/* === HOME SECTION === */
+.home-body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0f0f2d;
+  position: relative;
+}
+
+.home-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px 0;
+}
+
+.home-gallery {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.home-image {
+  flex: 1;
+  aspect-ratio: 1 / 1.5;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: transform 0.4s ease;
+  -webkit-box-reflect: below 4px linear-gradient(transparent, rgba(0, 0, 0, 0.15));
+  transform: scale(0.9);
+}
+
+.home-image:hover {
+  transform: scale(1.2);
+  z-index: 10;
+}
+
+.home-image img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1.5;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.home-image-label {
+  margin-top: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  background: linear-gradient(90deg, #00f7ff, #ff00cc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 8px #00f7ff, 0 0 15px #ff00cc;
+  animation: glowText 2s ease-in-out infinite alternate;
+}
+
+
+.home-image a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* === LOGIN SECTION === */
+.login-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background: url('bg.jpg') no-repeat;
+  background-size: cover;
+  background-position: center;
+  animation: login-animatebg 5s linear infinite;
+}
+
+@keyframes login-animatebg {
+  100% { filter: hue-rotate(360deg); }
+}
+
+.login-box {
+  position: relative;
+  width: 400px;
+  height: 550px;
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(15px);
+  padding: 20px;
+}
+
+.login-box h2 {
+  font-size: 2em;
+  color: white;
+  text-align: center;
+}
+
+.login-input-box {
+  position: relative;
+  width: 310px;
+  margin: 30px 0;
+  border-bottom: 2px solid white;
+}
+
+.login-input-box label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  color: white;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.login-input-box input:focus ~ label,
+.login-input-box input.filled ~ label {
+  top: -5px;
+}
+
+.login-input-box input {
+  width: 100%;
+  height: 50px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  color: white;
+  padding: 0 35px 0 5px;
+}
+
+.login-input-box .icon {
+  position: absolute;
+  right: 8px;
+  color: white;
+  font-size: 1.2em;
+  line-height: 57px;
+}
+
+.login-remember {
+  margin: -15px 0 15px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9em;
+}
+
+.login-remember label input {
+  margin-right: 3px;
+}
+
+.login-remember a {
+  color: white;
+  text-decoration: none;
+}
+
+.login-remember a:hover {
+  text-decoration: underline;
+}
+
+.login-button {
+  width: 100%;
+  height: 40px;
+  background-color: white;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 1em;
+  color: black;
+  font-weight: 500;
+}
+
+.login-register-link {
+  font-size: 0.9em;
+  color: white;
+  text-align: center;
+  margin: 25px 0 10px;
+}
+
+.login-register-link p a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.login-register-link p a:hover {
+  text-decoration: underline;
+}
+
+.login-loading-circle {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border: 2px solid white;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: login-spin 1s linear infinite;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+@keyframes login-spin {
+  100% { transform: rotate(360deg); }
+}
+
+/* === NAVBAR SECTION === */
+.navbar {
+animation: scrollY 30s linear infinite alternate, navbar-border-glow 6s linear infinite;
+
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 15px;
+
+  background: url('hinh-nen-galaxy-may-tinh-5.jpg') repeat-y;
+  background-size: 100% auto;
+  border-bottom: 2px solid transparent;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-image: linear-gradient(90deg, #00f7ff, #ff00cc, #00ffcc) 1;
+  border-bottom: 3px solid;
+  }
+
+@keyframes scrollY {
+  0% {
+    background-position-y: 0%;
+  }
+  100% {
+    background-position-y: 100%;
+  }
+}
+
+
+.navbar::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 0;
+}
+
+.navbar * {
+  position: relative;
+  z-index: 1;
+}
+
+.navbar .logo-icon {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  transition: transform 0.3s ease;
+}
+
+.navbar .logo-icon ion-icon {
+  font-size: 40px;
+  color: white;
+}
+
+.navbar .logo-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.navbar .navbar-nav .nav-link {
+  margin-left: 20px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.navbar .navbar-nav .nav-link:hover {
+  color: yellow;
+}
+
+.navbar .navbar-nav ion-icon {
+  font-size: 22px;
+}
+
+.navbar .navbar-nav .nav-link span {
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+}
+
+.navbar .navbar-nav .nav-link:hover span {
+  color: yellow;
+  text-shadow: 0 0 5px yellow;
+}
+
+.navbar .logo-text {
+  font-size: 22px;
+  font-weight: 700;
+  color: white;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+  font-family: 'Poppins', sans-serif;
+}
+
+/* === TITLE SECTION === */
+.title-banner {
+  position: absolute;
+  top: 40px;
+  width: 100%;
+  text-align: center;
+  z-index: 100;
+}
+
+.title-banner h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(90deg, #ff00cc, #3333ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  animation: title-glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes title-glow {
+  from {
+    text-shadow: 0 0 10px #ff00cc, 0 0 20px #ff00cc;
+  }
+  to {
+    text-shadow: 0 0 20px #3333ff, 0 0 40px #3333ff;
+  }
+}
+
+.navbar .navbar-nav .nav-link.active span,
+.navbar .navbar-nav .nav-link.active {
+  color: yellow;
+  text-shadow: 0 0 5px yellow;
+}
+
+.box {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    padding: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+
+  .box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  }
+
+  .box img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .box .product-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  text-shadow: 0 0 8px #00f7ff;
+}
+    .box .product-name {
+  animation: glowText 2s ease-in-out infinite alternate;
+}
+
+
+body {
+    padding-top: 80px; /* Chỉnh lại cho đúng chiều cao navbar */
+}
+
+.about-section {
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  color: #fff;
+  padding: 100px 30px;
+  position: relative;
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.about-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-container h2 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: #00ffe7;
+  text-shadow: 0 0 10px #00ffe7;
+}
+
+.about-container p {
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.back-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px 15px;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.contact-section {
+  background: #1a1a1a;
+  color: #fff;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.contact-section h2 {
+  font-size: 40px;
+  color: #00ffff;
+  margin-bottom: 30px;
+}
+
+.contact-info p {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.contact-form {
+  margin-top: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.contact-form button {
+  background-color: #00ffff;
+  color: #000;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: #00caca;
+}
+
+
+.site-footer {
+  background: #0f0f0f;
+  color: #aaa;
+  text-align: right;
+  padding: 20px 40px;
+  font-size: 14px;
+  border-top: 1px solid #444;
+  font-family: 'Poppins', sans-serif;
+}
+
+.site-footer ion-icon {
+  color: #00ffff;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+.site-footer strong {
+  color: #00ffff;
+}
+
+
+/* === CẬP NHẬT TONE MÀU ĐẸP CHO GIỚI THIỆU & LIÊN HỆ === */
+.about-section {
+  background: linear-gradient(to right, #0a0f2c, #101f4a);
+  color: #f5f5f5;
+  padding: 100px 30px;
+  position: relative;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+}
+
+.about-container h2 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: #00f7ff;
+  text-shadow: 0 0 10px #00f7ff;
+}
+
+.about-container p {
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: #dcdcdc;
+}
+
+.contact-section {
+  background: linear-gradient(to right, #101f4a, #0a0f2c);
+  color: #ffffff;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.contact-section h2 {
+  font-size: 40px;
+  color: #00f7ff;
+  margin-bottom: 30px;
+  text-shadow: 0 0 10px #00f7ff;
+}
+
+.contact-info p {
+  font-size: 18px;
+  margin: 10px 0;
+  color: #e0e0e0;
+}
+
+.contact-form input,
+.contact-form textarea {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid #00f7ff;
+  color: #fff;
+}
+
+.box img {
+  aspect-ratio: 1 / 1.2;     /* hoặc 3 / 4 cho tỉ lệ iPhone */
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+
+.about-section {
+  background: linear-gradient(to right, #0a0f2c, #101f4a);
+  color: #f5f5f5;
+  padding: 100px 30px;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+.about-container {
+  max-width: 1200px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0,255,255,0.1);
+}
+
+.about-container h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+  color: #00f7ff;
+  text-align: center;
+  text-shadow: 0 0 10px #00f7ff;
+}
+
+.about-container p {
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 15px;
+  text-align: justify;
+  color: #e0e0e0;
+}
+
+.contact-section {
+  background: linear-gradient(to right, #101f4a, #0a0f2c);
+  color: #ffffff;
+  padding: 100px 30px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.contact-wrapper {
+  width: 100%;
+  max-width: 900px;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0,255,255,0.1);
+}
+
+.contact-section h2 {
+  font-size: 36px;
+  color: #00f7ff;
+  margin-bottom: 30px;
+  text-shadow: 0 0 10px #00f7ff;
+}
+
+.contact-info {
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.contact-info p {
+  font-size: 18px;
+  margin: 10px 0;
+  color: #e0e0e0;
+}
+
+.contact-form input,
+.contact-form textarea {
+  background-color: #111;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  outline: none;
+  color: white !important;
+  font-size: 14px;
+  transition: border 0.3s ease;
+  padding: 10px 16px;
+  backdrop-filter: blur(6px);
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  scroll-margin-top: 100px;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+  opacity: 1;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border: 2px solid transparent;
+  background-image: linear-gradient(#111, #111),
+    linear-gradient(270deg, #ff00ff, #f22e2e, #00ffff);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  animation: glow-border 3s linear infinite;
+  color: white !important;
+}
+
+
+.contact-form button {
+  background-color: #00ffff;
+  color: #000;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* === WOW TEXT EFFECT === */
+.wow-text {
+  animation: glowText 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glowText {
+  0% { text-shadow: 0 0 10px #00f7ff, 0 0 20px #00f7ff; }
+  100% { text-shadow: 0 0 20px #ff00cc, 0 0 40px #ff00cc; }
+}
+
+/* === SCROLL REVEAL EFFECT === */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+
+/* === ANIMATE BUTTONS === */
+button, .btn {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+button::before, .btn::before {
+  content: "";
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, #00f7ff, #ff00cc);
+  transition: left 0.4s;
+  z-index: -1;
+}
+
+button:hover::before, .btn:hover::before {
+  left: 0;
+}
+
+/* === APPLY TO SPECIFIC ELEMENTS === */
+.title-banner h1,
+.about-container h2,
+.contact-section h2 {
+  animation: glowText 2s ease-in-out infinite alternate;
+}
+
+.about-container,
+.contact-wrapper {
+  animation: fadeIn 1s ease-in forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* === IMAGE HOVER ZOOM AND FLIP === */
+.box {
+  perspective: 1000px;
+}
+
+.box img {
+  transition: transform 0.6s ease;
+  transform-style: preserve-3d;
+}
+
+.box:hover img {
+  transform: rotateY(10deg) scale(1.05);
+  box-shadow: 0 15px 30px rgba(0,255,255,0.2);
+}
+
+/* === TYPING TEXT EFFECT === */
+.typing {
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  color: #00f7ff;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #00f7ff;
+  width: 0;
+  animation: typing 4s steps(40, end) forwards, blink 0.8s step-end infinite;
+  margin: 0 auto;
+  text-align: center;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+.box {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  transition: transform 0.4s ease;
+}
+
+.box:hover {
+  box-shadow: 0 0 20px #00f7ff, 0 0 40px #ff00cc;
+  transform: rotateY(10deg) scale(1.05);
+}
+
+.typing-loop {
+  white-space: nowrap;
+  overflow: hidden;
+  animation: marquee 15s linear infinite;
+  color: #ff00cc;
+  font-weight: 600;
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+body {
+  background: linear-gradient(-45deg, #0f0f2d, #203a43, #2c5364, #0f0f2d);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+#preloader {
+  position: fixed;
+  left: 0; top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #0f0f2d url('loading.gif') no-repeat center center;
+  z-index: 9999;
+}
+
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  background: transparent;
+  pointer-events: none;
+}
+
+
+
+#preloader {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0f0f2d url('https://i.gifer.com/YCZH.gif') no-repeat center center;
+  background-size: 100px;
+  z-index: 9999;
+}
+
+.showcase-title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  background: linear-gradient(90deg, #00f7ff, #ff00cc);
+  -webkit-background-clip: text;
+  background-clip: text; /* Standard property for compatibility */
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 10px #00f7ff, 0 0 20px #ff00cc;
+  animation: glowText 2s ease-in-out infinite alternate;
+}
+
+
+.home-body, .about-section, .contact-section, .box {
+  position: relative;
+  z-index: 1;
+}
+
+.home-body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('bg.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  opacity: 0.05;
+  z-index: -1;
+  filter: blur(5px);
+}
+
+.input-contact-form {
+    position: relative;
+}
+
+.glow-input {
+  width: 100%;
+  padding: 15px 20px;
+  background-color: #111;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  outline: none;
+  color: white;
+  font-size: 16px;
+  transition: border 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.glow-input:focus {
+  border: 2px solid transparent;
+  background-image: linear-gradient(#111, #111),
+    linear-gradient(270deg, #ff00ff, #f22e2e, #00ffff);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  animation: glow-border 3s linear infinite;
+}
+
+@keyframes glow-border {
+  0% { background-position: 0% 50%, 0% 50%; }
+  50% { background-position: 100% 50%, 100% 50%; }
+  100% { background-position: 0% 50%, 0% 50%; }
+}
+
+/* === WOW Navbar Glow Enhancement === */
+.navbar {
+  border-bottom: 2px solid transparent;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-image: linear-gradient(90deg, #00f7ff, #ff00cc, #00ffcc) 1;
+  border-bottom: 3px solid;
+  }
+
+@keyframes navbar-border-glow {
+  0% { border-image-source: linear-gradient(90deg, #00f7ff, #ff00cc, #00ffcc); }
+  50% { border-image-source: linear-gradient(90deg, #ff00cc, #00ffcc, #00f7ff); }
+  100% { border-image-source: linear-gradient(90deg, #00f7ff, #ff00cc, #00ffcc); }
+}
+
+/* Nav text glow */
+.navbar .nav-link {
+  color: white !important;
+  text-shadow: 0 0 5px #00f7ff, 0 0 15px #ff00cc;
+  font-weight: 600;
+  transition: color 0.3s, text-shadow 0.3s, transform 0.2s;
+}
+
+.navbar .nav-link:hover {
+  color: #ff00cc !important;
+  text-shadow: 0 0 10px #ff00cc, 0 0 20px #00f7ff;
+  transform: scale(1.1);
+}
+
+/* Logo text neon */
+.navbar .logo-text {
+  font-size: 24px;
+  font-weight: bold;
+  background: linear-gradient(90deg, #00f7ff, #ff00cc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glowText 2s ease-in-out infinite alternate;
+}
+
+/* === Search Box Glow === */
+.navbar .form-control {
+  background-color: rgba(0, 255, 255, 0.12);   /* sáng nhẹ, tươi nhưng không chói */
+  border: 2px solid rgba(0, 255, 255, 0.4);    /* viền xanh cyan nhẹ */
+  border-radius: 10px;
+  color: white !important;
+  padding: 10px 16px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 6px rgba(0, 255, 255, 0.2);
+}
+
+.navbar .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.7);  /* trắng vừa phải */
+  opacity: 1;
+}
+
+.navbar .form-control {
+  width: 100%;
+  padding: 10px 16px;
+  background-color: #111;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  outline: none;
+  color: white !important;
+  font-size: 14px;
+  transition: border 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.navbar .form-control:focus {
+  border: 2px solid transparent;
+  background-image: linear-gradient(#111, #111),
+    linear-gradient(270deg, #ff00ff, #f22e2e, #00ffff);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  animation: glow-border 3s linear infinite;
+  color: white !important;
+}
+
+
+
+/* === Button Glow Effect === */
+.navbar .btn-outline-light {
+  display: flex;
+  align-items: center;         /* căn giữa theo chiều dọc */
+  justify-content: center;     /* căn giữa theo chiều ngang */
+  padding: 10px 20px;
+  font-size: 14px;
+  border: 1.5px solid #00f7ff;
+  border-radius: 8px;
+  color: #00f7ff;
+  font-weight: 600;
+  background-color: rgba(0, 255, 255, 0.05);
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+
+.navbar .btn-outline-light:hover {
+  background: linear-gradient(90deg, #00f7ff, #ff00cc);
+  color: black;
+  box-shadow: 0 0 12px #00f7ff, 0 0 24px #ff00cc;
+}
+
+
+.navbar .navbar-nav .nav-link ion-icon {
+  font-size: 24px;
+  color: #ffffff;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.navbar .navbar-nav .nav-link:hover ion-icon {
+  transform: scale(1.2);
+  text-shadow: 0 0 10px #00f7ff, 0 0 20px #ff00cc;
+}
+
+.contact-form input,
+.contact-form textarea {
+  scroll-margin-top: 100px;
+}
+
+/* Hiệu ứng nhấp nháy khi tìm thấy sản phẩm */
+@keyframes flashHighlight {
+  0%, 100% { box-shadow: 0 0 0 transparent; }
+  50% { box-shadow: 0 0 25px 5px #00f7ff; }
+}
+
+.highlight-product {
+  animation: flashHighlight 1s ease-in-out 2;
+  border-radius: 16px;
+  transition: box-shadow 0.3s ease;
+}
+
+@keyframes flashHighlight {
+  0%, 100% { box-shadow: 0 0 0 transparent; }
+  50% { box-shadow: 0 0 30px 10px #ff00cc; } /* màu tím hồng neon nổi bật */
+}
+
+.highlight-product {
+  animation: flashHighlight 1s ease-in-out 3;
+  border-radius: 16px;
+  transition: box-shadow 0.3s ease;
+  position: relative;
+}
+
+/* Thẻ “ĐÂY NÈ 👇” */
+.tag-label {
+  display: none;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ff00cc;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: bold;
+  animation: fadeTag 0.6s ease forwards;
+  z-index: 10;
+}
+
+.show-label .tag-label {
+  display: inline-block;
+}
+
+@keyframes fadeTag {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.6);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  background: transparent;
+  pointer-events: none; /* ✅ không chặn tương tác */
+}
+
+.home-body, .about-section, .contact-section, .box {
+  position: relative;
+  z-index: 1;
+}
+
+/* Ẩn mũi tên mặc định của dropdown-toggle */
+.nav-link::after {
+  display: none !important;
+}
+
+/* Dropdown menu nền trong suốt + viền neon */
+.custom-dropdown {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid #00f7ff;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 247, 255, 0.3);
+  backdrop-filter: blur(8px);
+}
+
+/* Neon cho item Đăng xuất */
+.logout-neon {
+  color: #00f7ff !important;
+  font-weight: 600;
+  text-shadow: 0 0 8px #00f7ff;
+  transition: 0.3s ease;
+}
+
+.logout-neon:hover {
+  background: rgba(0, 247, 255, 0.08);
+  color: #ff55c7 !important;
+  text-shadow: 0 0 12px #ff00cc;
+}
+
+/* Ẩn mũi tên dropdown */
+.cart-toggle::after {
+  display: none !important;
+}
+
+/* Số lượng sản phẩm trong icon giỏ hàng */
+.cart-count {
+  position: absolute;
+  top: 2px;
+  right: 0px;
+  background: linear-gradient(135deg, #ff00cc, #00f7ff);
+  color: #fff;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 20px;
+  box-shadow: 0 0 6px rgba(255, 0, 204, 0.6);
+  font-weight: bold;
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 4px rgba(255, 0, 204, 0.4); }
+  50% { box-shadow: 0 0 10px rgba(0, 247, 255, 0.8); }
+  100% { box-shadow: 0 0 4px rgba(255, 0, 204, 0.4); }
+}
+
+/* Dropdown mini giỏ hàng */
+.custom-cart-dropdown {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid #00f7ff;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 247, 255, 0.3);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  width: 250px;
+}
+
+.navbar .navbar-nav .nav-link ion-icon {
+  font-size: 30px;
+  color: #fff;
+  animation: glowText 2s ease-in-out infinite alternate;
+  text-shadow: 0 0 5px #00f7ff, 0 0 10px #ff00cc;
+}

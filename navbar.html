@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Navbar Apple</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+  <!-- CSS riêng -->
+  <link rel="stylesheet" href="navbar.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-md px-3">
+    <!-- Logo -->
+<a href="#" class="navbar-brand d-flex align-items-center">
+  <span class="logo-icon me-2">
+    <ion-icon name="logo-apple"></ion-icon>
+  </span>
+  <span class="logo-text">HairStore</span>
+</a>
+
+    <!-- Mobile toggle -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navigation items -->
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-3">
+        <li class="nav-item">
+          <a class="nav-link text-white" href="home.html">
+            <span><ion-icon name="home-outline"></ion-icon> Trang chủ</span>
+           </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">
+            <span><ion-icon name="phone-portrait-outline"></ion-icon>IPhone</span>
+            </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">
+            <span><ion-icon name="laptop-outline"></ion-icon> Macbook</span>
+            </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">
+            <span><ion-icon name="call-outline"></ion-icon> Liên hệ</span>
+           </a>
+        </li>
+      </ul>
+
+      <!-- Search -->
+      <form class="d-flex ms-auto me-3">
+        <input class="form-control form-control-sm me-2" type="search" placeholder="Tìm kiếm..." />
+        <button class="btn btn-outline-light btn-sm" type="submit">Tìm</button>
+      </form>
+
+      <!-- Icons -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#"><ion-icon name="cart-outline"></ion-icon></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#"><ion-icon name="person-circle-outline"></ion-icon></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container mt-4">
+    <!-- Nội dung trang -->
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0f0f2d;
+    position: relative;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 0;
+}
+
+.gallery {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.image {
+    flex: 1;
+    aspect-ratio: 1 / 1.5;
+    cursor: pointer;
+    pointer-events: auto;
+    transition: transform 0.4s;
+    -webkit-box-reflect: below 4px linear-gradient(transparent, rgba(0, 0, 0, 0.15));
+    transform: scale(0.9);
+    transition: transform 0.4s ease;
+}
+
+.image:hover {
+    transform: scale(1.2);
+    z-index: 10;
+}
+
+.image img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1.5;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.image-label {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.6); /* màu trắng mờ nhạt */
+  text-align: center;
+  font-weight: 400;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+}
+
+.image a {
+  text-decoration: none;
+  color: inherit; /* Giữ màu chữ theo mặc định, không đổi thành màu link xanh */
+}
