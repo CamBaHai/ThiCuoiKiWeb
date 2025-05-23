@@ -8,71 +8,87 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="styleiphone.css">
 </head>
 <body>
-<!-- ghi chú -->
-  <!-- 🌟 Nút quay về -->
-  <nav class="custom-navbar" style="position: fixed !important; top: 0 !important;">
-    <a class="navbar-brand" href="../index.html" style="color: #00f7ff !important;">← Trang chủ</a>
-  </nav>
-    <div class="container">
-    <div class="product-card row gap-4">
-      <!-- BÊN TRÁI: Hình ảnh + Chọn GB + Giá -->
-      <div class="col-md-6 d-flex flex-column align-items-center p-4 bg-glass rounded">
-        <!-- Hình ảnh sản phẩm -->
-        <img id="galaxyImage" src="../anhiphone/iphone-15-pro-max.png" alt="iPhone 15 Pro" class="image-3d show img-fluid mb-3">
+  <div class="shooting-star-container">
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+  </div>
 
-        <!-- Chọn dung lượng và hiển thị giá -->
-        <div class="product-price mt-4 text-center">
-          <label for="storageSelect" class="form-label fw-bold">Chọn dung lượng:</label>
-          <select id="storageSelect" class="form-select w-75 mx-auto">
-            <option value="128">128GB</option>
-            <option value="256">256GB</option>
-            <option value="512">512GB</option>
-            <option value="1024">1TB</option>
-          </select>
-          <div class="price-display mt-3">
-            <span class="fw-bold">Giá:</span> <strong id="priceValue" class="text-danger fs-5">27.990.000₫</strong>
+  <!-- Hiệu ứng nền -->
+  <div id="stars-overlay"></div>
+  <div id="aurora-glow"></div>
+
+  <!-- 🔊 Âm thanh nền -->
+  <audio id="galaxySound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_98d2cbeb5f.mp3" preload="auto" autoplay loop></audio>
+
+  <!-- Nút quay về -->
+  <nav class="custom-navbar">
+    <a class="navbar-brand" href="../index.html">
+      <i class="fas fa-rocket"></i> Trang chủ
+    </a>
+  </nav>
+  <div id="app">
+    <div class="container">
+      <div class="product-card row gap-4">
+
+        <!-- BÊN TRÁI: Hình ảnh + Chọn GB + Giá -->
+        <div class="col-md-6 d-flex flex-column align-items-center p-4 bg-glass rounded">
+
+          <!-- Hình ảnh sản phẩm -->
+          <img id="galaxyImage" src="../anhiphone/iphone-15-pro-max.png" alt="iPhone 15 Pro" class="image-3d show img-fluid mb-3">
+
+          <!-- Chọn dung lượng và hiển thị giá -->
+          <div class="product-price mt-4 text-center">
+            <label for="storageSelect" class="form-label fw-bold">Chọn dung lượng:</label>
+            <select id="storageSelect" class="form-select w-75 mx-auto">
+              <option value="256">256GB</option>
+              <option value="512">512GB</option>
+              <option value="1024">1TB</option>
+            </select>
+            <div class="price-display mt-3">
+              <span class="fw-bold">Giá:</span> <strong id="priceValue" class="text-danger fs-5">34.990.000₫</strong>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- BÊN PHẢI: Thông tin và nút -->
-      <div class="col-md-5 product-info text-start p-4 bg-glass rounded">
-        <h1>iPhone 15 Pro Max</h1>
-        <p class="lead">Siêu phẩm đỉnh cao với chip A17 Pro, thiết kế Titanium, zoom quang 5x và hiệu năng vượt trội.</p>
+        <!-- BÊN PHẢI: Thông tin và nút -->
+        <div class="col-md-5 product-info text-start p-4 bg-glass rounded">
+          <h1>iPhone 15 Pro Max</h1>
+            <p class="lead">Siêu phẩm đỉnh cao với chip A17 Pro, thiết kế Titanium, zoom quang 5x và hiệu năng vượt trội.</p>
+          <ul class="specs">
+            <li>Màn hình: 6.7 inch LTPO Super Retina XDR</li>
+            <li>Chip: Apple A17 Pro</li>
+            <li>Camera: 48MP + Tele 5x + Ultra Wide</li>
+            <li>Chất liệu: Titanium nguyên khối</li>
+          </ul>
 
-        <ul class="specs">
-        <li>Màn hình: 6.7 inch LTPO Super Retina XDR</li>
-        <li>Chip: Apple A17 Pro</li>
-        <li>Camera: 48MP + Tele 5x + Ultra Wide</li>
-        <li>Chất liệu: Titanium nguyên khối</li>
-        </ul>
+          <!-- Nút toggle thông tin chi tiết -->
+          <button class="btn-galaxy toggle-details-btn mt-3">📋 Thông tin chi tiết</button>
 
-        <!-- Nút toggle thông tin chi tiết -->
-        <button class="btn-galaxy toggle-details-btn mt-3">📋 Thông tin chi tiết</button>
-
-        <!-- Nội dung chi tiết ẩn/hiện -->
-        <div class="product-details mt-3" style="display: none;">
-        <h2>Thông tin chi tiết</h2>
-        <div class="spec-list">
-            <div class="spec-item"><strong>Màn hình:</strong> 6.7 inch LTPO Super Retina XDR, 120Hz, Always-On</div>
-            <div class="spec-item"><strong>Chip:</strong> Apple A17 Pro (3nm)</div>
-            <div class="spec-item"><strong>RAM:</strong> 8 GB</div>
-            <div class="spec-item"><strong>Bộ nhớ:</strong> 256GB / 512GB / 1TB</div>
-            <div class="spec-item"><strong>Camera sau:</strong> 48MP chính + 12MP ultra wide + 12MP tele (Zoom quang 5x)</div>
-            <div class="spec-item"><strong>Camera trước:</strong> 12MP, Face ID</div>
-            <div class="spec-item"><strong>Chất liệu:</strong> Titanium cấp độ hàng không</div>
-            <div class="spec-item"><strong>Pin:</strong> ~4422 mAh, sạc nhanh 20W</div>
-            <div class="spec-item"><strong>Hệ điều hành:</strong> iOS 17</div>
-        </div>
-        </div>
-
-        <div class="buttons mt-3">
-          <a href="../cart.html" class="btn-pay">💳 Thanh toán</a>
-          <!-- Nút thêm vào giỏ hàng -->
-          <a href="../index.html" class="btn-galaxy" onclick="addToCartItem()">🛒 Thêm vào giỏ hàng</a>
+          <!-- Nội dung chi tiết ẩn/hiện -->
+          <div class="product-details mt-3" style="display: none;">
+            <h2>Thông tin chi tiết</h2>
+            <div class="spec-list">
+                <div class="spec-item"><strong>Màn hình:</strong> 6.7 inch LTPO Super Retina XDR, 120Hz, Always-On</div>
+                <div class="spec-item"><strong>Chip:</strong> Apple A17 Pro (3nm)</div>
+                <div class="spec-item"><strong>RAM:</strong> 8 GB</div>
+                <div class="spec-item"><strong>Bộ nhớ:</strong> 256GB / 512GB / 1TB</div>
+                <div class="spec-item"><strong>Camera sau:</strong> 48MP chính + 12MP ultra wide + 12MP tele (Zoom quang 5x)</div>
+                <div class="spec-item"><strong>Camera trước:</strong> 12MP, Face ID</div>
+                <div class="spec-item"><strong>Chất liệu:</strong> Titanium cấp độ hàng không</div>
+                <div class="spec-item"><strong>Pin:</strong> ~4422 mAh, sạc nhanh 20W</div>
+                <div class="spec-item"><strong>Hệ điều hành:</strong> iOS 17</div>
+            </div>
+          </div>
+          <div class="buttons mt-3">
+            <a href="../cart.html" class="btn-pay">💳 Thanh toán</a>
+            <!-- Nút thêm vào giỏ hàng -->
+            <a href="../index.html" class="btn-galaxy" onclick="addToCartItem()">🛒 Thêm vào giỏ hàng</a>
+          </div>
         </div>
       </div>
     </div>
@@ -109,27 +125,6 @@
     setInterval(nextAutoImage, 5000);
   </script>
 
-  <!-- 🌌 JS đổi nền galaxy + âm thanh -->
-  <script>
-    const galaxyImages = [
-      "vuTru.jpg",
-      "vuTru2.jpg",
-      "vuTru3.jpg",
-    ];
-    let galaxyIndex = 0;
-    const bg = document.getElementById("galaxy-bg");
-    const sound = document.getElementById("galaxySound");
-
-    function switchGalaxy() {
-      galaxyIndex = (galaxyIndex + 1) % galaxyImages.length;
-      bg.style.backgroundImage = `url('${galaxyImages[galaxyIndex]}')`;
-      sound.currentTime = 0;
-      sound.play();
-    }
-
-    document.getElementById("changeGalaxy").addEventListener("click", switchGalaxy);
-    setInterval(switchGalaxy, 15000); // auto đổi mỗi 15s
-  </script>
   <script>
   // Ẩn/hiện thông tin chi tiết khi nhấn nút
   document.querySelector('.toggle-details-btn').addEventListener('click', function () {
@@ -141,10 +136,9 @@
 </script>
 <script>
   const priceMap = {
-    128: "27.990.000₫",
-    256: "30.990.000₫",
-    512: "34.990.000₫",
-    1024: "39.990.000₫"
+    256: "34.990.000₫",
+    512: "38.990.000₫",
+    1024: "43.990.000₫"
   };
 
   document.getElementById("storageSelect").addEventListener("change", function () {
@@ -152,13 +146,15 @@
     document.getElementById("priceValue").textContent = priceMap[selected];
   });
 </script>
+
+<!-- Thêm sản phẩm vào giỏ hàng -->
 <script>
   function addToCartItem() {
     const selectedStorage = document.getElementById("storageSelect").value;
     const product = {
       name: "iPhone 15 Pro " + selectedStorage + "GB",
       quantity: 1,
-      image: "../anhiphone/iphone-15-pro.png"
+      image: "iphone15promax/iphone-15-pro-max.png",
     };
 
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
