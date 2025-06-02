@@ -750,8 +750,8 @@ button:hover::before, .btn:hover::before {
 }
 
 .box:hover img {
-  transform: rotateY(10deg) scale(1.05);
-  box-shadow: 0 15px 30px rgba(0,255,255,0.2);
+  transform: scale(1.03);
+  box-shadow: 0 6px 12px rgba(0,255,255,0.2);
 }
 
 /* === TYPING TEXT EFFECT === */
@@ -1184,4 +1184,12 @@ body {
   color: #fff;
   animation: glowText 2s ease-in-out infinite alternate;
   text-shadow: 0 0 5px #00f7ff, 0 0 10px #ff00cc;
+}
+
+/* Tắt hiệu ứng cho người dùng máy yếu */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
 }
