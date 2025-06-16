@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin Panel - Quản lý sản phẩm</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+  <div class="container py-4">
+    <h2 class="mb-4">🛠️ Quản lý Sản phẩm</h2>
+
+    <form id="product-form" class="mb-4">
+      <input type="text" id="product-name" class="form-control mb-2" placeholder="Tên sản phẩm" required />
+      <input type="text" id="product-image" class="form-control mb-2" placeholder="URL hình ảnh" required />
+      <input type="hidden" id="product-id" />
+      <button type="submit" class="btn btn-primary">Lưu sản phẩm</button>
+    </form>
+
+    <hr />
+    
+    <h4>📦 Danh sách sản phẩm</h4>
+    <div id="product-list" class="mt-3"></div>
+  </div>
+
+  <script type="module" src="admin.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

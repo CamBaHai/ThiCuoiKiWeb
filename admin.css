@@ -1,0 +1,32 @@
+body {
+  background-color: #f8f9fa;
+}
+
+.product-card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.product-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 15px;
+}
+
+.product-info {
+  flex-grow: 1;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.product-actions button {
+  margin-left: 10px;
+}

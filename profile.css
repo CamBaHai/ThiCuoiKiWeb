@@ -1,0 +1,151 @@
+/* === GLOBAL === */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(-45deg, #0f0f2d, #203a43, #2c5364, #0f0f2d);
+  background-size: 400% 400%;
+  animation: gradientBG 20s ease infinite;
+  color: white;
+}
+
+@keyframes gradientBG {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+/* === CONTAINER === */
+.profile-container {
+  max-width: 700px;
+  margin: 80px auto;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 45px;
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.15), 0 0 60px rgba(255, 0, 204, 0.1);
+  position: relative;
+  z-index: 1;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* === AVATAR GLOW === */
+.avatar-glow {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid #00f7ff;
+  box-shadow: 0 0 25px #00f7ff, 0 0 50px #ff00cc, 0 0 70px #00f7ff;
+  margin: auto;
+  transition: transform 0.3s ease, box-shadow 0.4s ease;
+  animation: pulseGlow 2s infinite alternate;
+}
+
+@keyframes pulseGlow {
+  from {
+    box-shadow: 0 0 20px #00f7ff, 0 0 40px #ff00cc;
+  }
+  to {
+    box-shadow: 0 0 35px #ff00cc, 0 0 60px #00f7ff;
+  }
+}
+
+.avatar-glow:hover {
+  transform: scale(1.1);
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* === TYPING TEXT EFFECT === */
+.typing-text {
+  font-size: 30px;
+  color: #00f7ff;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #00f7ff;
+  width: 0;
+  animation: typing 3s steps(40, end) forwards, blink 0.7s step-end infinite;
+  text-align: center;
+  font-weight: 600;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* === GLOW INPUT === */
+.glow-input {
+  background-color: #111;
+  border: 2px solid transparent;
+  border-radius: 14px;
+  color: #fff;
+  font-size: 15px;
+  padding: 12px 16px;
+  margin-bottom: 18px;
+  transition: all 0.4s ease;
+  box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.1);
+}
+
+.glow-input:focus {
+  border: 2px solid transparent;
+  background-image: linear-gradient(#111, #111),
+    linear-gradient(270deg, #ff00ff, #00f7ff, #00ffcc);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  animation: glow-border 3s linear infinite;
+  color: white;
+  box-shadow: 0 0 10px #00f7ff, 0 0 15px #ff00cc;
+}
+
+@keyframes glow-border {
+  0% { background-position: 0% 50%, 0% 50%; }
+  50% { background-position: 100% 50%, 100% 50%; }
+  100% { background-position: 0% 50%, 0% 50%; }
+}
+
+/* === SAVE BUTTON GLOW === */
+.btn-glow {
+  background: linear-gradient(90deg, #00f7ff, #ff00cc);
+  border: none;
+  color: black;
+  padding: 14px;
+  font-weight: bold;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  font-size: 17px;
+  box-shadow: 0 0 12px rgba(0,255,255,0.4), 0 0 24px rgba(255,0,204,0.2);
+}
+
+.btn-glow:hover {
+  background: linear-gradient(90deg, #ff00cc, #00f7ff);
+  color: white;
+  box-shadow: 0 0 30px #00f7ff, 0 0 40px #ff00cc;
+  transform: scale(1.02);
+}
+
+/* === LOGOUT BUTTON NEON OUTLINE === */
+.neon-outline {
+  border: 2px solid #00f7ff;
+  color: #00f7ff;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  padding: 10px 24px;
+  border-radius: 12px;
+}
+
+.neon-outline:hover {
+  background: rgba(0, 247, 255, 0.1);
+  color: #ff00cc;
+  box-shadow: 0 0 20px #00f7ff, 0 0 30px #ff00cc;
+  transform: scale(1.05);
+}

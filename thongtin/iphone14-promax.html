@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>iPhone 14 Pro Max</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="styleiphone.css">
+</head>
+<body>
+  <div class="shooting-star-container">
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+  </div>
+
+  <div id="stars-overlay"></div>
+  <div id="aurora-glow"></div>
+
+  <audio id="galaxySound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_98d2cbeb5f.mp3" preload="auto" autoplay loop></audio>
+
+  <nav class="custom-navbar">
+    <a class="navbar-brand" href="../index.html">
+      <i class="fas fa-rocket"></i> Trang chủ
+    </a>
+  </nav>
+
+  <div id="app">
+    <div class="container">
+      <div class="product-card row gap-4">
+        <div class="col-md-6 d-flex flex-column align-items-center p-4 bg-glass rounded">
+          <img id="galaxyImage" src="../anhiphone/iphone-14-pro-max.png" alt="iPhone 14 Pro Max" class="image-3d show img-fluid mb-3">
+
+          <div class="product-price mt-4 text-center">
+            <label for="storageSelect" class="form-label fw-bold">Chọn dung lượng:</label>
+            <select id="storageSelect" class="form-select w-75 mx-auto">
+              <option value="128">128GB</option>
+              <option value="256">256GB</option>
+              <option value="512">512GB</option>
+              <option value="1024">1TB</option>
+            </select>
+            <div class="price-display mt-3">
+              <span class="fw-bold">Giá:</span> <strong id="priceValue" class="text-danger fs-5">25.990.000₫</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-5 product-info text-start p-4 bg-glass rounded">
+          <h1>iPhone 14 Pro Max</h1>
+          <p class="lead">Chiếc iPhone cao cấp với màn hình Dynamic Island, camera 48MP và hiệu năng mạnh mẽ từ chip A16 Bionic.</p>
+          <ul class="specs">
+            <li>Màn hình: 6.7 inch Super Retina XDR</li>
+            <li>Chip: Apple A16 Bionic</li>
+            <li>Camera: 48MP chính + Ultra Wide + Tele</li>
+            <li>Thiết kế: Khung thép không gỉ</li>
+          </ul>
+
+          <button class="btn-galaxy toggle-details-btn mt-3">📋 Thông tin chi tiết</button>
+
+          <div class="product-details mt-3" style="display: none;">
+            <h2>Thông tin chi tiết</h2>
+            <div class="spec-list">
+              <div class="spec-item"><strong>Màn hình:</strong> 6.7 inch Super Retina XDR, 120Hz, Always-On</div>
+              <div class="spec-item"><strong>Chip:</strong> Apple A16 Bionic</div>
+              <div class="spec-item"><strong>RAM:</strong> 6 GB</div>
+              <div class="spec-item"><strong>Bộ nhớ:</strong> 128GB / 256GB / 512GB / 1TB</div>
+              <div class="spec-item"><strong>Camera sau:</strong> 48MP chính + 12MP ultra wide + 12MP tele</div>
+              <div class="spec-item"><strong>Camera trước:</strong> 12MP, Face ID</div>
+              <div class="spec-item"><strong>Chất liệu:</strong> Khung thép không gỉ</div>
+              <div class="spec-item"><strong>Pin:</strong> ~4323 mAh, sạc nhanh 20W</div>
+              <div class="spec-item"><strong>Hệ điều hành:</strong> iOS 16 (cập nhật iOS 17)</div>
+            </div>
+          </div>
+
+          <div class="buttons mt-3">
+            <a href="../cart.html" class="btn-pay">💳 Thanh toán</a>
+            <a href="../index.html" class="btn-galaxy" onclick="addToCartItem()">🛒 Thêm vào giỏ hàng</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="galaxy-bg"></div>
+
+  <script>
+    const images = [
+      "iphone14promax/iphone-14-pro-max.png",
+      "iphone14promax/iphone-14-pro-max2.png",
+      "iphone14promax/iphone-14-pro-max3.png"
+    ];
+    let index = 0;
+
+    function nextAutoImage() {
+      const img = document.getElementById("galaxyImage");
+      img.classList.remove("show");
+      img.classList.add("hide");
+      setTimeout(() => {
+        index = (index + 1) % images.length;
+        img.src = images[index];
+        img.classList.remove("hide");
+        img.classList.add("show");
+      }, 300);
+    }
+    setInterval(nextAutoImage, 5000);
+  </script>
+
+  <script>
+    document.querySelector('.toggle-details-btn').addEventListener('click', function () {
+      const details = document.querySelector('.product-details');
+      const isVisible = details.style.display === 'block';
+      details.style.display = isVisible ? 'none' : 'block';
+      this.textContent = isVisible ? '📋 Thông tin chi tiết' : '🔽 Ẩn thông tin';
+    });
+
+    const priceMap = {
+      128: "25.990.000₫",
+      256: "27.990.000₫",
+      512: "31.990.000₫",
+      1024: "35.990.000₫"
+    };
+
+    document.getElementById("storageSelect").addEventListener("change", function () {
+      const selected = this.value;
+      document.getElementById("priceValue").textContent = priceMap[selected];
+    });
+
+    function addToCartItem() {
+      const selectedStorage = document.getElementById("storageSelect").value;
+      const product = {
+        name: `iPhone 14 Pro Max ${selectedStorage}GB`,
+        quantity: 1,
+        image: "../anhiphone/iphone-14-pro-max.png",
+        price: priceMap[selected] || "Không xác định"
+      };
+
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const existingIndex = cart.findIndex(item => item.name === product.name);
+
+      if (existingIndex !== -1) {
+        cart[existingIndex].quantity += 1;
+      } else {
+        cart.push(product);
+      }
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+      showToast(`🛒 ${product.name} đã được thêm vào giỏ hàng!`);
+    }
+
+    function showToast(message, type = 'success') {
+      const toastEl = document.getElementById('liveToast');
+      toastEl.className = `toast align-items-center text-bg-${type} animate-shake`;
+      document.getElementById('toastMessage').textContent = message;
+
+      const toast = new bootstrap.Toast(toastEl, { delay: 3000 });
+      toast.show();
+
+      setTimeout(() => {
+        toastEl.classList.remove("animate-shake");
+      }, 400);
+    }
+  </script>
+
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="liveToast" class="toast align-items-center text-bg-success" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body" id="toastMessage">Sản phẩm đã được thêm</div>
+        <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -48,6 +48,7 @@
           <img src="${item.image}" alt="${item.name}" />
           <div class="info">
             <strong>${item.name}</strong><br>
+            <span>Số lượng: ${item.quantity || 1}</span><br>
             <span class="text-warning">Giá: ${priceText}</span>
           </div>
           <button class="btn btn-sm btn-danger" onclick="removeItem(${index})">X</button>
@@ -70,5 +71,6 @@
       location.reload(); // reload lại để cập nhật
     }
   </script>
+
 </body>
 </html>

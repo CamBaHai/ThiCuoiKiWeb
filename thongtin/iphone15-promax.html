@@ -147,22 +147,64 @@
     document.getElementById("priceValue").textContent = priceMap[selected];
   });
 </script>
-<script>
-  function addToCartItem() {
-    const selectedStorage = document.getElementById("storageSelect").value;
-    const product = {
-      name: "iPhone 15 Pro Max " + selectedStorage + "GB",
-      quantity: 1,
-      image: "../anhiphone/iphone-15-pro-max.png",
-      price: selectedStorage === "256" ? "33.990.000₫" :
-             selectedStorage === "512" ? "37.990.000₫" :
-             "42.990.000₫"
-    };
+  <!-- JS: Thêm vào giỏ hàng -->
+    <script>
+    function addToCartItem() {
+        const selectedStorage = document.getElementById("storageSelect").value;
+        const product = {
+        name: `iPhone 15 Pro Max ${selectedStorage}GB`,
+        quantity: 1,
+        image: "../anhiphone/iphone-15-pro-max.png",
+        price: selectedStorage === "256" ? "33.990.000₫" :
+                selectedStorage === "512" ? "37.990.000₫" :
+                selectedStorage === "1024" ? "42.990.000₫" : "Không xác định"
+        };
 
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    cart.push(product);
-    localStorage.setItem("cart", JSON.stringify(cart));
-  }
-</script>
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        const existingIndex = cart.findIndex(item => item.name === product.name);
+        if (existingIndex !== -1) {
+        cart[existingIndex].quantity += 1;
+        } else {
+        cart.push(product);
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        showToast(`🛒 ${product.name} đã được thêm vào giỏ hàng!`);
+    }
+    function showToast(message, type = 'success') {
+    const toastEl = document.getElementById('liveToast');
+    toastEl.className = `toast align-items-center text-bg-${type}`;
+    document.getElementById('toastMessage').textContent = message;
+
+    const toast = new bootstrap.Toast(toastEl, { delay: 3000 }); // 3 giây
+    toast.show();
+    }
+    </script>
+    <script>
+    function showToast(message, type = 'success') {
+        const toastEl = document.getElementById('liveToast');
+        toastEl.className = `toast align-items-center text-bg-${type} animate-shake`;
+        document.getElementById('toastMessage').textContent = message;
+
+        const toast = new bootstrap.Toast(toastEl, { delay: 3000 });
+        toast.show();
+
+    // Xóa class shake sau khi chạy xong
+        setTimeout(() => {
+        toastEl.classList.remove("animate-shake");
+        }, 400);
+    }
+
+    </script>
+<!-- Toast hiển thị thông báo -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="liveToast" class="toast align-items-center text-bg-success" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+      <div class="toast-body" id="toastMessage">Sản phẩm đã được thêm</div>
+      <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
 </body>
 </html>

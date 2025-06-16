@@ -10,14 +10,12 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
+  
   <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css" />
-  
+  <script type="module" src="products.js"></script>
   
 </head>
-
-
 <body>
     <div id="preloader"></div>
     <div id="particles-js"></div>
@@ -31,7 +29,7 @@
       <span class="logo-icon me-2">
         <ion-icon name="logo-apple"></ion-icon>
       </span>
-      <span class="logo-text">HairStore</span>
+      <span class="logo-text" id="welcomeText">HairStore</span>
     </a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
@@ -83,6 +81,9 @@
           </a>
           <ul class="dropdown-menu dropdown-menu-end custom-dropdown">
             <li>
+               <a class="dropdown-item logout-neon" href="profile.html">👤 Tài khoản của tôi</a>
+            </li>
+            <li>
               <a class="dropdown-item logout-neon" href="login.html">🔒 Đăng xuất</a>
             </li>
           </ul>
@@ -97,7 +98,10 @@
 
   <!-- Tiêu đề -->
   <div class="title-banner reveal" style="position: relative; top: 0; margin-top: 40px;">
-    <h1>iPhone Showcase</h1>
+    <h1>
+      Iphone Showcase
+      <span id="welcomeText" class="ms-3 text-muted fs-5"></span>
+    </h1>
   </div>
 
   <!-- Thư viện sản phẩm -->
@@ -377,7 +381,9 @@
         </a>
       </div>
     </div>
-
+    <div class="container mt-4 reveal" id="list-iphone">
+      <div class="row" id="product-container"></div>
+    </div>
 
   </div> <!-- Kết thúc container -->
     
@@ -424,12 +430,11 @@
         </section>
 
     </div>
-
+    <footer class="site-footer">
+      <p><ion-icon name="pencil-outline"></ion-icon> Hải – <strong>Cầm Bá Hải</strong></p>
+    </footer>
   </div>
 
-<footer class="site-footer">
-  <p><ion-icon name="pencil-outline"></ion-icon> Hải – <strong>Cầm Bá Hải</strong></p>
-</footer>
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const observer = new IntersectionObserver((entries) => {
@@ -527,10 +532,10 @@
 <script>
   // Giả sử bạn lưu giỏ hàng trong localStorage
   function updateCartCount() {
-    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-    const count = cartItems.length;
-    const cartCountEl = document.getElementById('cartCount');
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const count = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
 
+    const cartCountEl = document.getElementById('cartCount');
     if (count > 0) {
       cartCountEl.textContent = count;
       cartCountEl.classList.remove('d-none');
@@ -578,6 +583,23 @@
     updateCartStatus(); // Cập nhật sau khi thêm
   }
 </script>
+<!-- <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  emailjs.init("YOUR_PUBLIC_KEY");
+
+  document.getElementById("contactForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", this)
+      .then(() => alert("Đã gửi thành công!"))
+      .catch(error => alert("Lỗi gửi: " + error));
+  });
+</script>
+<script>
+  const user = JSON.parse(localStorage.getItem('user'));
+  if (user && user.fullName) {
+    document.getElementById("welcomeText").textContent = `Hi, ${user.username}`;
+  }
+</script> -->
 
 </body>
 </html>
